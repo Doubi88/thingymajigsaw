@@ -8,15 +8,27 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "AvailableObjectsList",
+"language": "GDScript",
+"path": "res://Scripts/AvailableObjectsList.gd"
+}, {
+"base": "RigidBody2D",
+"class": "MachineObject",
+"language": "GDScript",
+"path": "res://MachineObjects/Scripts/MachineObject.gd"
+} ]
 _global_script_class_icons={
-
+"AvailableObjectsList": "",
+"MachineObject": ""
 }
 
 [application]
 
 config/name="The Credible Machine"
-config/icon="res://icon.png"
+run/main_scene="res://Scenes/DefaultUI.tscn"
+config/icon="res://Sprites/Basketball.png"
 
 [rendering]
 

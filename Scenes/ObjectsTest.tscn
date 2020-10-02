@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://MachineObjects/Basketball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MachineObjects/Board.tscn" type="PackedScene" id=2]
+
+
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Basketball" parent="." instance=ExtResource( 1 )]
+position = Vector2( 453.652, 158.053 )
+
+[node name="Board" parent="." instance=ExtResource( 2 )]
+position = Vector2( 455.503, 245.032 )
+rotation = 0.352203
+
+[node name="Board2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 525.066, 258.04 )
