@@ -24,3 +24,5 @@ position = Vector2( 440.447, 297.95 )
 shape = SubResource( 1 )
 
 [node name="MachineObjects" type="Node2D" parent="."]
+[connection signal="area_entered" from="DropArea" to="Background/HUD" method="_on_DropArea_area_entered"]
+[connection signal="area_exited" from="DropArea" to="Background/HUD" method="_on_DropArea_area_exited"]

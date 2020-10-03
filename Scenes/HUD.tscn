@@ -83,6 +83,7 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 fixed_icon_size = Vector2( 32, 32 )
 
 [node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+pause_mode = 2
 margin_top = 562.0
 margin_right = 140.0
 margin_bottom = 600.0
@@ -107,3 +108,5 @@ margin_bottom = 38.0
 mouse_filter = 1
 icon = SubResource( 9 )
 [connection signal="pressed" from="VBoxContainer/Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Pause" to="." method="_on_Pause_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Reset" to="." method="_on_Reset_pressed"]

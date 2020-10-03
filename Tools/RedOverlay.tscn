@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+void fragment() {
+	vec4 c = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0).rgba;
+	c.r = 1.0;
+	
+	
+	COLOR.rgba = c;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="RedOverlay" type="ColorRect"]
+visible = false
+material = SubResource( 2 )
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

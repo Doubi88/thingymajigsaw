@@ -28,7 +28,13 @@ _global_script_class_icons={
 
 config/name="The Credible Machine"
 run/main_scene="res://Scenes/DefaultUI.tscn"
+boot_splash/image="res://Sprites/Basketball.png"
+boot_splash/bg_color=Color( 0.545098, 0.545098, 0.545098, 1 )
 config/icon="res://Sprites/Basketball.png"
+
+[autoload]
+
+GlobalVars="*res://Scripts/GlobalVars.gd"
 
 [rendering]
 

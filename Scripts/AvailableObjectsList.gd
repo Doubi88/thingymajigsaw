@@ -47,14 +47,12 @@ func spawnItemAtCursor(itemIndex: int) -> MachineObject:
 	
 	newItem.isActive = false
 	var machineObjectsNode = get_parent().owner
-	print(machineObjectsNode.name)
 	machineObjectsNode = machineObjectsNode.get_node("MachineObjects")
 	machineObjectsNode.add_child(newItem, true)
 	
 	return newItem
 	
 func readLevelFile():
-	var itemList = get_node("VBoxContainer/ItemList")
 	var text = load_text_file(levelFileName)
 	if text != null:
 		var lines = text.split("\n", false)
@@ -93,11 +91,41 @@ func save_text_file(text, path):
 	f.store_string(text)
 	f.close()
 
-func _on_Play_pressed() -> void:
+func getAllMachineObjects() -> Array:
 	var objectsNode = owner.get_node("MachineObjects")
 	var items = objectsNode.get_children()
+	return items
+		
+func _on_Play_pressed() -> void:
+	var items = getAllMachineObjects()
 	for item in items:
+		if (!item.isPositionValid()):
+			_on_Reset_pressed()
+			return
 		item.isActive = true
-		print("isActive of ", item.displayName, " = ", item.isActive)
 	running = true
 	(get_node("VBoxContainer/Buttons/Play").icon as AnimatedTexture).current_frame = 1
+	get_node("VBoxContainer/Buttons/Play").disabled = true
+
+
+func _on_Pause_pressed() -> void:
+	get_tree().paused = !get_tree().paused
+
+
+func _on_Reset_pressed() -> void:
+	get_tree().paused = false
+	var items = getAllMachineObjects()
+	for item in items:
+		item.isActive = false
+		item.reset = true
+	(get_node("VBoxContainer/Buttons/Play").icon as AnimatedTexture).current_frame = 0
+	get_node("VBoxContainer/Buttons/Play").disabled = false
+	running = false
+
+func _on_DropArea_area_exited(area: Area2D) -> void:
+	if area.name == "CheckArea":
+		(area.get_parent() as MachineObject).isInDropArea = false
+
+func _on_DropArea_area_entered(area: Area2D) -> void:
+	if area.name == "CheckArea":
+		(area.get_parent() as MachineObject).isInDropArea = true
