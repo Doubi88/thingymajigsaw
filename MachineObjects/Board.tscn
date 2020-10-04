@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Board.png" type="Texture" id=1]
 [ext_resource path="res://MachineObjects/Scripts/MachineObject.gd" type="Script" id=2]
 [ext_resource path="res://Tools/RedOverlay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/RotateButton.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.176, 8.22127 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
 
 [node name="Board" type="RigidBody2D"]
 input_pickable = true
@@ -32,6 +38,18 @@ margin_left = -32.0
 margin_top = -8.0
 margin_right = 32.0
 margin_bottom = 8.0
+
+[node name="RotateButton" type="ToolButton" parent="."]
+margin_left = -60.261
+margin_top = -12.0
+margin_right = -32.261
+margin_bottom = 12.0
+icon = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="input_event" from="." to="." method="_on_MachineObject_input_event"]
 [connection signal="area_entered" from="CheckArea" to="." method="_on_CheckArea_area_entered"]
 [connection signal="area_exited" from="CheckArea" to="." method="_on_CheckArea_area_exited"]
+[connection signal="button_down" from="RotateButton" to="." method="_on_RotateButton_button_down"]
+[connection signal="button_up" from="RotateButton" to="." method="_on_RotateButton_button_up"]

@@ -1,3 +1,3 @@
 extends Node
 
-var draggingObject: MachineObject
+var editingObject: MachineObject
