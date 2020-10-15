@@ -20,6 +20,9 @@ export var isStatic = false
 func _physics_process(delta: float) -> void:
 	if (!isActive):
 		mode = MODE_STATIC
+		var rotateButton = get_node("RotateButton")
+		if (rotateButton != null):
+			rotateButton.visible = true
 		
 		if (reset):
 			print(startRotation - global_transform.get_rotation())
@@ -48,8 +51,12 @@ func _physics_process(delta: float) -> void:
 			get_node("RedOverlay").visible = false
 		else:
 			get_node("RedOverlay").visible = true
-	elif !isStatic:
-		mode = MODE_RIGID
+	else:
+		var rotateButton = get_node("RotateButton")
+		if (rotateButton != null):
+			rotateButton.visible = false
+		if !isStatic:
+			mode = MODE_RIGID
 
 	if isRotating:
 		var rotationAngle = global_position.angle_to_point(get_global_mouse_position()) - rotationStartAngle

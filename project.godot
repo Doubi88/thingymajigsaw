@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "MachineObject",
 "language": "GDScript",
 "path": "res://MachineObjects/Scripts/MachineObject.gd"
+}, {
+"base": "MachineObject",
+"class": "Seesaw",
+"language": "GDScript",
+"path": "res://MachineObjects/Scripts/Seesaw.gd"
 } ]
 _global_script_class_icons={
 "AvailableObjectsList": "",
-"MachineObject": ""
+"MachineObject": "",
+"Seesaw": ""
 }
 
 [application]

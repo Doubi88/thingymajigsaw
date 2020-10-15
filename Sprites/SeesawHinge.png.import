@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PlayButton.png-dc81e6e13ca370ce14773a81ba147860.stex"
+path="res://.import/SeesawHinge.png-6b9a69b8b95d13ff56e6dcac302478d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/PlayButton.png"
-dest_files=[ "res://.import/PlayButton.png-dc81e6e13ca370ce14773a81ba147860.stex" ]
+source_file="res://Sprites/SeesawHinge.png"
+dest_files=[ "res://.import/SeesawHinge.png-6b9a69b8b95d13ff56e6dcac302478d7.stex" ]
 
 [params]
 

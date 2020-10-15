@@ -59,11 +59,14 @@ func readLevelFile():
 		for line in lines:
 			var cols = line.split(" ")
 			var objectScene = load("res://MachineObjects/" + cols[0] + ".tscn")
-			var machineObject : MachineObject = objectScene.instance()
+			if (objectScene == null):
+				print("Could not find MachineObject named ", cols[0]);
+			else:
+				var machineObject : MachineObject = objectScene.instance()
 			
-			var count = cols[1].to_int()
-			machineObjects.append(machineObject)
-			objectCounts.append(count)
+				var count = cols[1].to_int()
+				machineObjects.append(machineObject)
+				objectCounts.append(count)
 	else:
 		get_tree().quit()
 
@@ -124,8 +127,8 @@ func _on_Reset_pressed() -> void:
 
 func _on_DropArea_area_exited(area: Area2D) -> void:
 	if area.name == "CheckArea":
-		(area.get_parent() as MachineObject).isInDropArea = false
+		(area.owner as MachineObject).isInDropArea = false
 
 func _on_DropArea_area_entered(area: Area2D) -> void:
 	if area.name == "CheckArea":
-		(area.get_parent() as MachineObject).isInDropArea = true
+		(area.owner as MachineObject).isInDropArea = true

@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://MachineObjects/Scripts/Seesaw.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/SeesawBoard.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/SeesawHinge.png" type="Texture" id=3]
+[ext_resource path="res://Tools/RedOverlay.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tools/RotateButton.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 4 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 15.9499
+height = 36.2284
+
+[node name="Seesaw" type="RigidBody2D"]
+script = ExtResource( 1 )
+displayName = "Seesaw"
+isStatic = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -4.4375, -2.25, 2.8125, -2.25, 16.0375, 12.0552, 16.0551, 16.0189, -16.0496, 16.0465, -16.0331, 11.9742 )
+
+[node name="SeesawBoard" type="RigidBody2D" parent="."]
+rotation = -0.174533
+
+[node name="Sprite" type="Sprite" parent="SeesawBoard"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeesawBoard"]
+shape = SubResource( 1 )
+
+[node name="CheckArea" type="Area2D" parent="SeesawBoard"]
+visible = false
+rotation = 0.379533
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeesawBoard/CheckArea"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="RotateButton" parent="SeesawBoard" instance=ExtResource( 5 )]
+margin_left = -91.0455
+margin_top = -12.0296
+margin_right = -63.0455
+margin_bottom = 11.9704
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../SeesawBoard")
+
+[node name="RedOverlay" parent="." instance=ExtResource( 4 )]
+margin_left = -31.0
+margin_right = 31.0
+
+[node name="Stoppers" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Stoppers"]
+polygon = PoolVector2Array( -62.8006, 15.75, -16.223, 13.8897, 16.178, 13.9833, 66.3244, 15.875 )
+[connection signal="area_entered" from="SeesawBoard/CheckArea" to="." method="_on_CheckArea_area_entered"]
+[connection signal="area_exited" from="SeesawBoard/CheckArea" to="." method="_on_CheckArea_area_exited"]
+[connection signal="button_down" from="SeesawBoard/RotateButton" to="." method="_on_RotateButton_button_down"]
+[connection signal="button_up" from="SeesawBoard/RotateButton" to="." method="_on_RotateButton_button_up"]
