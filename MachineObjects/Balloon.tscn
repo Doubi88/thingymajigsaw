@@ -4,16 +4,16 @@
 [ext_resource path="res://Sprites/Balloon.png" type="Texture" id=2]
 [ext_resource path="res://Tools/RedOverlay.tscn" type="PackedScene" id=3]
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.5
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 24.317
 height = 16.6771
 
 [node name="Balloon" type="RigidBody2D"]
 mass = 0.02
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
 displayName = "Balloon"
 
@@ -32,4 +32,6 @@ margin_bottom = 31.0
 [node name="CheckArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckArea"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
+[connection signal="area_entered" from="CheckArea" to="." method="_on_CheckArea_area_entered"]
+[connection signal="area_exited" from="CheckArea" to="." method="_on_CheckArea_area_exited"]

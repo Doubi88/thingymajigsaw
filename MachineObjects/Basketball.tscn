@@ -31,6 +31,10 @@ shape = SubResource( 2 )
 shape = SubResource( 2 )
 
 [node name="RedOverlay" parent="." instance=ExtResource( 3 )]
+margin_left = -33.0
+margin_top = -33.0
+margin_right = 33.0
+margin_bottom = 33.0
 [connection signal="input_event" from="." to="." method="_on_MachineObject_input_event"]
 [connection signal="area_entered" from="CheckArea" to="." method="_on_CheckArea_area_entered"]
 [connection signal="area_exited" from="CheckArea" to="." method="_on_CheckArea_area_exited"]

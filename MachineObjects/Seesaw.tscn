@@ -52,8 +52,9 @@ node_a = NodePath("..")
 node_b = NodePath("../SeesawBoard")
 
 [node name="RedOverlay" parent="." instance=ExtResource( 4 )]
-margin_left = -31.0
-margin_right = 31.0
+visible = true
+margin_left = -63.0
+margin_right = 64.0
 
 [node name="Stoppers" type="StaticBody2D" parent="."]
 
