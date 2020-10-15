@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://MachineObjects/Scripts/Balloon.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Balloon.png" type="Texture" id=2]
+[ext_resource path="res://Tools/RedOverlay.tscn" type="PackedScene" id=3]
+
+[sub_resource type="PhysicsMaterial" id=2]
+bounce = 0.5
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 24.317
+height = 16.6771
+
+[node name="Balloon" type="RigidBody2D"]
+mass = 0.02
+physics_material_override = SubResource( 2 )
+script = ExtResource( 1 )
+displayName = "Balloon"
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 5.81678, -32.0109, 10.9059, -30.0087, 15.0772, -26.6716, 19.2486, -21.8328, 24.0874, -10.9872, 24.2543, 5.78172, 20.8177, 14.6283, 14.6756, 22.1878, 8.84846, 26.1251, 4.09858, 28.1559, 6.07526, 31.0235, 6.1031, 32.0257, -5.95716, 32.1478, -5.95716, 30.0643, -4.32015, 28.4769, -14.8367, 21.9305, -21.8808, 11.7116, -24.0635, 5.95723, -23.9642, -10.9569, -20.6902, -19.0412, -16.7217, -24.7955, -10.8682, -30.0538, -6.20519, -32.038 )
+
+[node name="RedOverlay" parent="." instance=ExtResource( 3 )]
+margin_left = -24.0
+margin_top = -32.0
+margin_right = 24.0
+margin_bottom = 31.0
+
+[node name="CheckArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckArea"]
+shape = SubResource( 1 )

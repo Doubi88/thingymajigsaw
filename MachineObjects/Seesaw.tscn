@@ -59,6 +59,7 @@ margin_right = 31.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Stoppers"]
 polygon = PoolVector2Array( -62.8006, 15.75, -16.223, 13.8897, 16.178, 13.9833, 66.3244, 15.875 )
+one_way_collision = true
 [connection signal="area_entered" from="SeesawBoard/CheckArea" to="." method="_on_CheckArea_area_entered"]
 [connection signal="area_exited" from="SeesawBoard/CheckArea" to="." method="_on_CheckArea_area_exited"]
 [connection signal="button_down" from="SeesawBoard/RotateButton" to="." method="_on_RotateButton_button_down"]
