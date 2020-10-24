@@ -1,0 +1,338 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://MachineObjects/Scripts/Trampoline.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/TrampFoot.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/TrampMat.png" type="Texture" id=3]
+[ext_resource path="res://Tools/RedOverlay.tscn" type="PackedScene" id=4]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.48501, 1.49497 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 2.53548, 7.99096 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 2.34789, 7.99857 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 37.2749, 8.14206 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 37.6086, 7.8271 )
+
+[node name="Trampoline" type="RigidBody2D"]
+mode = 1
+script = ExtResource( 1 )
+displayName = "Trampoline"
+isStatic = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -35.1004, 1.90735e-06 )
+texture = ExtResource( 2 )
+
+[node name="Mat1" type="RigidBody2D" parent="."]
+position = Vector2( -15.1004, 1.90735e-06 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat1"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat1"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat2" type="RigidBody2D" parent="."]
+position = Vector2( -10.1155, 1.90735e-06 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat2"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat2"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat3" type="RigidBody2D" parent="."]
+position = Vector2( -4.99822, 1.90735e-06 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat3"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat3"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat4" type="RigidBody2D" parent="."]
+position = Vector2( 0.124161, -0.00647163 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat4"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat4"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat5" type="RigidBody2D" parent="."]
+position = Vector2( 5.28031, 9.53674e-07 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat5"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat5"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat6" type="RigidBody2D" parent="."]
+position = Vector2( 10.4254, 9.53674e-07 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat6"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat6"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat7" type="RigidBody2D" parent="."]
+position = Vector2( 15.627, 9.53674e-07 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat7"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat7"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat8" type="RigidBody2D" parent="."]
+position = Vector2( 20.7791, 1.90735e-06 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat8"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat8"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat9" type="RigidBody2D" parent="."]
+position = Vector2( 25.8963, 1.90735e-06 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat9"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat9"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat10" type="RigidBody2D" parent="."]
+position = Vector2( 31.0342, 0.0304813 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat10"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat10"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat11" type="RigidBody2D" parent="."]
+position = Vector2( 36.1744, 0.0556822 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat11"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat11"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat12" type="RigidBody2D" parent="."]
+position = Vector2( 41.3193, 0.0556822 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat12"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat12"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="Mat13" type="RigidBody2D" parent="."]
+position = Vector2( 46.5208, 9.53674e-07 )
+mass = 0.1
+physics_material_override = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Mat13"]
+position = Vector2( -14.9363, -5.43136 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mat13"]
+position = Vector2( -14.9337, -5.43136 )
+shape = SubResource( 2 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( -32.6011, -5.57094 )
+node_a = NodePath("..")
+node_b = NodePath("../Mat1")
+softness = 0.5
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( -27.5737, -5.43238 )
+node_a = NodePath("../Mat1")
+node_b = NodePath("../Mat2")
+softness = 0.5
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( -22.4883, -5.47239 )
+node_a = NodePath("../Mat2")
+node_b = NodePath("../Mat3")
+softness = 0.5
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( -17.3554, -5.38718 )
+node_a = NodePath("../Mat3")
+node_b = NodePath("../Mat4")
+softness = 0.5
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( -12.275, -5.39807 )
+node_a = NodePath("../Mat4")
+node_b = NodePath("../Mat5")
+softness = 0.5
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( -7.10483, -5.42435 )
+node_a = NodePath("../Mat5")
+node_b = NodePath("../Mat6")
+softness = 0.5
+
+[node name="PinJoint2D7" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( -1.91928, -5.43523 )
+node_a = NodePath("../Mat6")
+node_b = NodePath("../Mat7")
+softness = 0.5
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( 3.28157, -5.42435 )
+node_a = NodePath("../Mat7")
+node_b = NodePath("../Mat8")
+softness = 0.5
+
+[node name="PinJoint2D9" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( 8.36691, -5.59722 )
+node_a = NodePath("../Mat8")
+node_b = NodePath("../Mat9")
+softness = 0.5
+
+[node name="PinJoint2D10" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( 13.5257, -5.45866 )
+node_a = NodePath("../Mat9")
+node_b = NodePath("../Mat10")
+softness = 0.5
+
+[node name="PinJoint2D11" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( 18.6899, -5.39356 )
+node_a = NodePath("../Mat10")
+node_b = NodePath("../Mat11")
+softness = 0.5
+
+[node name="PinJoint2D12" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( 23.7966, -5.38718 )
+node_a = NodePath("../Mat11")
+node_b = NodePath("../Mat12")
+softness = 0.5
+
+[node name="PinJoint2D13" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( 28.9821, -5.42435 )
+node_a = NodePath("../Mat12")
+node_b = NodePath("../Mat13")
+softness = 0.5
+
+[node name="PinJoint2D14" type="PinJoint2D" parent="."]
+visible = false
+position = Vector2( 34.1259, -5.34551 )
+node_a = NodePath("../Mat13")
+node_b = NodePath("../RightFoot")
+softness = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -20.0042, 0.0367126 )
+shape = SubResource( 3 )
+
+[node name="RedOverlay" parent="." instance=ExtResource( 4 )]
+margin_left = -23.0
+margin_top = -8.0
+margin_right = 23.0
+margin_bottom = 8.0
+
+[node name="RightFoot" type="StaticBody2D" parent="."]
+position = Vector2( 16.7907, 0.201675 )
+
+[node name="Sprite" type="Sprite" parent="RightFoot"]
+position = Vector2( 20, 0.0787449 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightFoot"]
+position = Vector2( 20.105, 0.0371628 )
+shape = SubResource( 4 )
+
+[node name="CheckArea" type="Area2D" parent="."]
+visible = false
+position = Vector2( -15.1004, 1.90735e-06 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckArea"]
+position = Vector2( 15.1004, 0 )
+shape = SubResource( 5 )
+
+[node name="DragArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DragArea"]
+shape = SubResource( 6 )
+[connection signal="area_entered" from="CheckArea" to="." method="_on_CheckArea_area_entered"]
+[connection signal="area_exited" from="CheckArea" to="." method="_on_CheckArea_area_exited"]

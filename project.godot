@@ -24,16 +24,34 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://MachineObjects/Scripts/MachineObject.gd"
 }, {
+"base": "Node2D",
+"class": "Rope",
+"language": "GDScript",
+"path": "res://MachineObjects/Connectors/Rope.gd"
+}, {
+"base": "RigidBody2D",
+"class": "RopeObject",
+"language": "GDScript",
+"path": "res://MachineObjects/Connectors/RopeObject.gd"
+}, {
 "base": "MachineObject",
 "class": "Seesaw",
 "language": "GDScript",
 "path": "res://MachineObjects/Scripts/Seesaw.gd"
+}, {
+"base": "MachineObject",
+"class": "Trampoline",
+"language": "GDScript",
+"path": "res://MachineObjects/Scripts/Trampoline.gd"
 } ]
 _global_script_class_icons={
 "AvailableObjectsList": "",
 "Balloon": "",
 "MachineObject": "",
-"Seesaw": ""
+"Rope": "",
+"RopeObject": "",
+"Seesaw": "",
+"Trampoline": ""
 }
 
 [application]
@@ -52,6 +70,11 @@ GlobalVars="*res://Scripts/GlobalVars.gd"
 
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[layer_names]
+
+2d_physics/layer_1="MachineObjects"
+2d_physics/layer_2="Ropes"
 
 [rendering]
 

@@ -4,7 +4,7 @@ class_name MachineObject
 
 export var displayName = ""
 
-var isActive = false
+var isActive = false setget setIsActive, getIsActive
 var isDragging = false
 var isRotating = false
 var rotationStartAngle: float
@@ -17,6 +17,13 @@ var isInDropArea = false
 var collisions = 0
 export var isStatic = false
 
+func getIsActive() -> bool:
+	return isActive
+	
+func setIsActive(value: bool):
+	isActive = value
+	
+	
 func _physics_process(delta: float) -> void:
 	if (!isActive):
 		mode = MODE_STATIC
@@ -32,10 +39,19 @@ func _physics_process(delta: float) -> void:
 			reset = false
 		if !isRotating:
 			if  Input.is_mouse_button_pressed(BUTTON_LEFT) && (GlobalVars.editingObject == null || GlobalVars.editingObject == self):
-				var spriteRect = (get_node("Sprite") as Sprite).get_rect()
-				spriteRect.position += global_position
+				var rect: Rect2
+				var dragArea: Area2D = get_node("DragArea")
+				if (dragArea == null):
+					rect = get_node("Sprite").get_rect()
+					rect.position += global_position
+				else:
+					var dragAreaShape: CollisionShape2D = dragArea.get_node("CollisionShape2D")
+					var extents: Vector2 = dragAreaShape.shape.extents
+					rect.size = extents * 2
+					rect.position = dragArea.global_position - extents
+				
 				var mousePos = get_global_mouse_position()
-				if spriteRect.has_point(mousePos):
+				if rect.has_point(mousePos):
 					isDragging = true
 					GlobalVars.editingObject = self
 			else:
@@ -71,12 +87,12 @@ func isPositionValid() -> bool:
 	return isInDropArea && collisions == 0
 
 func _on_CheckArea_area_entered(area: Area2D) -> void:
-	if area.get_parent().get_class() == get_class():
+	if area != get_node("DragArea") && area.get_parent().get_class() == get_class():
 		collisions += 1
 
 
 func _on_CheckArea_area_exited(area: Area2D) -> void:
-	if area.get_parent().get_class() == get_class():
+	if area != get_node("DragArea") && area.get_parent().get_class() == get_class():
 		collisions -= 1
 
 
