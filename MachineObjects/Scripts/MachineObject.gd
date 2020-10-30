@@ -17,6 +17,8 @@ var isInDropArea = false
 var collisions = 0
 export var isStatic = false
 
+var explosionForces = Vector2.ZERO
+
 func getIsActive() -> bool:
 	return isActive
 	
@@ -32,7 +34,6 @@ func _physics_process(delta: float) -> void:
 			rotateButton.visible = true
 		
 		if (reset):
-			print(startRotation - global_transform.get_rotation())
 			global_transform = global_transform.rotated(startRotation - global_transform.get_rotation())
 			global_transform.origin = startPos
 			
@@ -76,13 +77,17 @@ func _physics_process(delta: float) -> void:
 
 	if isRotating:
 		var rotationAngle = global_position.angle_to_point(get_global_mouse_position()) - rotationStartAngle
-		print("rotationAngle ", rotationAngle)
 		rotate(rotationAngle)
 		rotationStartAngle = rotation
 			
 	if isDragging:
 		global_transform.origin = get_global_mouse_position()
 
+func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+	applied_force = Vector2.ZERO
+	state.apply_central_impulse(explosionForces)
+	explosionForces = Vector2.ZERO
+	
 func isPositionValid() -> bool:
 	return isInDropArea && collisions == 0
 
@@ -101,7 +106,6 @@ func _on_RotateButton_button_down() -> void:
 		GlobalVars.editingObject = self
 		isRotating = true
 		rotationStartAngle = global_position.angle_to_point(get_global_mouse_position())
-		print("rotationStartAngle ", rotationStartAngle)
 
 
 func _on_RotateButton_button_up() -> void:
@@ -109,3 +113,8 @@ func _on_RotateButton_button_up() -> void:
 		GlobalVars.editingObject = null
 		isRotating = false
 	
+func addExplosionImpact(explosionCenterGlobal: Vector2, forceAtCenter: float):
+	var distanceXY = global_position - explosionCenterGlobal
+	var force = forceAtCenter / distanceXY.length()
+	var direction = distanceXY.normalized()
+	explosionForces = Vector2(direction.x * force, direction.y * force)
