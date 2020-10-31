@@ -20,3 +20,9 @@ func _physics_process(delta: float) -> void:
 		boardPosition = board.global_transform.origin
 	else:
 		get_node("SeesawBoard").mode = RigidBody2D.MODE_RIGID
+
+func rotateWithMouse():
+	var board = get_node("SeesawBoard")
+	var rotationAngle = board.global_position.angle_to_point(get_global_mouse_position()) - rotationStartAngle
+	board.rotate(rotationAngle)
+	rotationStartAngle = board.rotation

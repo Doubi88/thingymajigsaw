@@ -61,7 +61,9 @@ func _on_FireArea_area_entered(area: Area2D) -> void:
 		inFireArea = true
 
 func _on_FireArea_area_exited(area: Area2D) -> void:
-	if (!isActive && area.name == "FireImpactArea"):
-		burning = false
-		burnTime = 0
+	if (area.name == "FireImpactArea"):
+		if !isActive:
+			burning = false
+			burnTime = 0
+			
 		inFireArea = false

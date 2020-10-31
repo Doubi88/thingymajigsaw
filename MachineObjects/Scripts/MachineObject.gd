@@ -76,13 +76,16 @@ func _physics_process(delta: float) -> void:
 			mode = MODE_RIGID
 
 	if isRotating:
-		var rotationAngle = global_position.angle_to_point(get_global_mouse_position()) - rotationStartAngle
-		rotate(rotationAngle)
-		rotationStartAngle = rotation
+		rotateWithMouse()
 			
 	if isDragging:
 		global_transform.origin = get_global_mouse_position()
 
+func rotateWithMouse():
+	var rotationAngle = global_position.angle_to_point(get_global_mouse_position()) - rotationStartAngle
+	rotate(rotationAngle)
+	rotationStartAngle = rotation
+	
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	applied_force = Vector2.ZERO
 	state.apply_central_impulse(explosionForces)

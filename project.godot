@@ -62,7 +62,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="The Credible Machine"
+config/name="Thingymajigsaw"
 run/main_scene="res://Scenes/DefaultUI.tscn"
 boot_splash/image="res://Sprites/Basketball.png"
 boot_splash/bg_color=Color( 0.545098, 0.545098, 0.545098, 1 )

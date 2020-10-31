@@ -40,7 +40,7 @@ region = Rect2( 0, 0, 32, 32 )
 
 [node name="Dynamite" type="RigidBody2D"]
 input_pickable = true
-mass = 5.5
+mass = 0.5
 physics_material_override = SubResource( 1 )
 contacts_reported = 3
 contact_monitor = true
