@@ -29,16 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://MachineObjects/Scripts/MachineObject.gd"
 }, {
-"base": "Node2D",
-"class": "Rope",
-"language": "GDScript",
-"path": "res://MachineObjects/Connectors/Rope.gd"
-}, {
-"base": "RigidBody2D",
-"class": "RopeObject",
-"language": "GDScript",
-"path": "res://MachineObjects/Connectors/RopeObject.gd"
-}, {
 "base": "MachineObject",
 "class": "Seesaw",
 "language": "GDScript",
@@ -54,8 +44,6 @@ _global_script_class_icons={
 "Balloon": "",
 "Dynamite": "",
 "MachineObject": "",
-"Rope": "",
-"RopeObject": "",
 "Seesaw": "",
 "Trampoline": ""
 }
