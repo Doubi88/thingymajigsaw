@@ -3,6 +3,7 @@ extends Node
 class_name AvailableObjectsList
 
 export(String, FILE, "*.lvl") var levelFileName = ""
+export(Resource) var levelParser
 
 var machineObjects = []
 var objectCounts = []
@@ -33,6 +34,9 @@ func _process(delta: float) -> void:
 				selectedItem = null
 				
 
+func addListItem(item: MachineObject, count: int):
+	machineObjects.append(item)
+	objectCounts.append(count)
 
 func spawnItemAtCursor(itemIndex: int) -> MachineObject:
 	var newItem = machineObjects[itemIndex].duplicate() as MachineObject
@@ -53,47 +57,11 @@ func spawnItemAtCursor(itemIndex: int) -> MachineObject:
 	return newItem
 	
 func readLevelFile():
-	var text = load_text_file(levelFileName)
-	if text != null:
-		var lines = text.split("\n", false)
-		for line in lines:
-			var cols = line.split(" ")
-			var objectScene = load("res://MachineObjects/" + cols[0] + ".tscn")
-			if (objectScene == null):
-				print("Could not find MachineObject named ", cols[0]);
-			else:
-				var machineObject : MachineObject = objectScene.instance()
-			
-				var count = cols[1].to_int()
-				machineObjects.append(machineObject)
-				objectCounts.append(count)
-	else:
-		get_tree().quit()
+	levelParser.parse(levelFileName, self, get_parent().owner.get_node("MachineObjects"))
 
-func load_text_file(path):
-	var f = File.new()
-	var err = f.open(path, File.READ)
-	if err != OK:
-		var error = "Could not open file \"" + path + "\""
-		if err == ERR_FILE_NOT_FOUND:
-			error += ", File not found"
-		else:
-			error += ", error code " + str(err)
-		OS.alert(error, "Error opening level file")
-		return null
-	var text = f.get_as_text()
-	f.close()
-	return text
-
-func save_text_file(text, path):
-	var f = File.new()
-	var err = f.open(path, File.WRITE)
-	if err != OK:
-		printerr("Could not write file, error code ", err)
-		return
-	f.store_string(text)
-	f.close()
-
+func saveLevelFile():
+	levelParser.save(levelFileName, self, get_parent().owner.get_node("MachineObjects"))
+	
 func getAllMachineObjects() -> Array:
 	var objectsNode = owner.get_node("MachineObjects")
 	var items = objectsNode.get_children()
@@ -132,3 +100,4 @@ func _on_DropArea_area_exited(area: Area2D) -> void:
 func _on_DropArea_area_entered(area: Area2D) -> void:
 	if area.name == "CheckArea":
 		(area.owner as MachineObject).isInDropArea = true
+
