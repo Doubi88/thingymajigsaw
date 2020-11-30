@@ -1,9 +1,1 @@
-Basketball 10
-Tennisball 10
-Board 20
-Seesaw 10
-Balloon 10
-Eyelet 10
-Trampoline 10
-Candle 10
-Dynaminte 10
+{"itemList":[{"name":"Basketball","amount":20},{"name":"Tennisball","amount":10},{"name":"Seesaw","amount":10},{"name":"Balloon","amount":10},{"name":"Eyelet","amount":10},{"name":"Trampoline","amount":10},{"name":"Candle","amount":10},{"name":"Dynaminte","amount":10},{"name":"Board","amount":20}],"placedItems":[]}
