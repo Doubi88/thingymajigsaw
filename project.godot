@@ -34,6 +34,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://MachineObjects/Scripts/MachineObject.gd"
 }, {
+"base": "CenterContainer",
+"class": "MainMenu",
+"language": "GDScript",
+"path": "res://Scripts/MainMenu.gd"
+}, {
+"base": "Button",
+"class": "PuzzleButton",
+"language": "GDScript",
+"path": "res://Scripts/PuzzleButton.gd"
+}, {
+"base": "Control",
+"class": "PuzzlesMenu",
+"language": "GDScript",
+"path": "res://Scripts/PuzzlesMenu.gd"
+}, {
 "base": "MachineObject",
 "class": "Seesaw",
 "language": "GDScript",
@@ -50,6 +65,9 @@ _global_script_class_icons={
 "Dynamite": "",
 "LevelParser": "",
 "MachineObject": "",
+"MainMenu": "",
+"PuzzleButton": "",
+"PuzzlesMenu": "",
 "Seesaw": "",
 "Trampoline": ""
 }
@@ -57,7 +75,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Thingymajigsaw"
-run/main_scene="res://Scenes/DefaultUI.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 boot_splash/image="res://Sprites/Basketball.png"
 boot_splash/bg_color=Color( 0.545098, 0.545098, 0.545098, 1 )
 config/icon="res://Sprites/Basketball.png"
